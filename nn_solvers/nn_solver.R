@@ -9,15 +9,12 @@ marabou_solver_r <- function(model, epsilon, image, correct_class) {
   # Convert the model to ONNX format
   py_run_file("nn_solvers//convert_to_onnx.py")
   
-  # Import necessary Python libraries
-  py_numpy <- import("numpy")
-  
   # Convert R matrix to Python ndarray
   py_image <- r_to_py(image)
   
   # Run the Marabou solver
   solver <- py_run_file("nn_solvers//tools//marabou_solver.py")
-  result <- solver$marabou_solver(epsilon, image, correct_class)
+  result <- solver$marabou_solver(epsilon, py_image, correct_class)
   if (length(result[[1]]) == 0) {
     print("unsat")
   } else {
