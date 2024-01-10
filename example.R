@@ -51,4 +51,7 @@ source("sample_models//nn_sample.R")
 
 # Call Marabou from NN solver
 source("nn_solvers//nn_solver.R")
-marabou_solver_r(model, 0.1, train_x[1,,], train_y[1])
+
+image = train_x[1,,]
+class = train_y[1]
+marabou_solver_r(model, 0.1, image, class)
