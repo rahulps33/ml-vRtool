@@ -17,7 +17,13 @@ marabou_solver_r <- function(model, epsilon, image, correct_class) {
   
   # Run the Marabou solver
   solver <- py_run_file("nn_solvers//tools//marabou_solver.py")
-  solver$marabou_solver(epsilon, py_image, correct_class)
+  result <- solver$marabou_solver(epsilon, image, correct_class)
+  if (length(result[[1]]) == 0) {
+    print("unsat")
+  } else {
+    print("sat")
+  }
+  print(result)
   
   # Remove temporary files
   unlink("temp_data//model.h5")
