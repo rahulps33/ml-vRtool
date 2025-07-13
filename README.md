@@ -1,5 +1,6 @@
 # ml-vRtool
-Verification tool for machine learning models in R
+### Verification tool for machine learning models in R
+**Master's Thesis** - TU Dortmund University 
 
 ml-vRtool is a dedicated machine learning model verification tool designed specifically for R users. It aims to bridge the accessibility gap by providing robust verification capabilities across various machine learning models. The tool focuses on verifying the robustness property, particularly $\varepsilon$-robustness, employing deductive verification techniques.
 
